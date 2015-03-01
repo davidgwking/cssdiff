@@ -7,7 +7,7 @@ The implementation leverages [PhantomCSS](https://github.com/Huddle/PhantomCSS),
 Any generated artifacts will be stored in your current working directory.
 
 ```bash
-$ /cssdog/bin/cssdog "html/{,**/*}*.html" -h
+$ cssdog "html/{,**/*}*.html" -h
 node cssdog/bin/cssdog <glob> [options...]
 
 Options:
