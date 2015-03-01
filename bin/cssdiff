@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+
+var cssdiff = require('../lib/cssdiff');
+
+var argv = require('yargs')
+  .version(function () { return require('../package').version; })
+  .usage('$0 <glob> [options...]')
+  .option('e', {
+    alias: 'engine',
+    demand: false,
+    default: 'phantomjs',
+    describe: 'rendering engine of choice [phantomjs|slimerjs]',
+    type: 'string'
+  })
+  .option('v', {
+    alias: 'verbose',
+    demand: false,
+    default: false,
+    describe: 'whether to print log messages to stdout',
+    type: 'boolean'
+  })
+  .option('l', {
+    alias: 'log-level',
+    demand: false,
+    default: 'info',
+    describe: 'desired logging level [debug|info|warning|error]',
+    type: 'string'
+  })
+  .option('r', {
+    alias: 'rebase',
+    demand: false,
+    default: false,
+    describe: 'create a new baseline. this will delete your current baseline snapshots.',
+    type: 'boolean'
+  })
+  .option('d', {
+    alias: 'dirty',
+    demand: false,
+    default: false,
+    describe: 'do not clean up comparison artifacts and results following a run.',
+    type: 'boolean'
+  })
+  .option('t', {
+    alias: 'tolerance',
+    demand: false,
+    default: 0.05,
+    describe: 'Mismatch tolerance. Increasing this value will decrease test coverage. Defaults to 0.05%.',
+    type: 'number'
+  })
+  .option('o', {
+    alias: 'outputDir',
+    demand: false,
+    default: './out',
+    describe: 'specify the output artifacts and results directory.',
+    type: 'string'
+  })
+  .help('h')
+  .strict()
+  .argv;
+
+var glob = argv._[0];
+if (!glob) {
+  console.error('error: glob pattern required');
+  process.exit(1);
+}
+
+var options = {
+  engine: argv.e,
+  verbose: argv.v,
+  logLevel: argv.l,
+  rebase: argv.r,
+  dirty: argv.d,
+  mismatchTolerance: argv.t,
+  outputDir: argv.o
+};
+
+cssdiff(glob, options, function (err, ok, code) {
+  console.info('info: child process exited with code %s', code);
+
+  if (err) {
+    console.error('error: %s', err.message);
+    process.exit(err.code ? err.code : 1);
+  }
+
+  if (!ok) process.exit(1);
+
+  process.exit(0);
+});

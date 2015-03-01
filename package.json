@@ -1,0 +1,30 @@
+{
+  "name": "cssdiff",
+  "version": "0.0.1",
+  "description": "a small tool for performing css regression analysis on static html",
+  "license": "MIT",
+  "author": "David King <davidgwking@gmail.com>",
+  "maintainers": [
+    "David King <davidgwking@gmail.com>"
+  ],
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davidgwking/cssdiff.git"
+  },
+  "bin": {
+    "cssdiff": "./bin/cssdiff"
+  },
+  "main": "./lib/cssdiff",
+  "dependencies": {
+    "casperjs": "^1.1.0-beta3",
+    "glob": "^4.4.1",
+    "phantomcss": "^0.10.0",
+    "phantomjs": "^1.9.15",
+    "slimerjs": "^0.9.5",
+    "yargs": "^3.4.4"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
