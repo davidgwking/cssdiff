@@ -6,6 +6,8 @@ The implementation leverages [PhantomCSS](https://github.com/Huddle/PhantomCSS),
 
 Any generated artifacts will be stored in your current working directory.
 
+File selection is powered by [glob](https://github.com/isaacs/node-glob).
+
 ```bash
 $ cssdog "html/{,**/*}*.html" -h
 node cssdog/bin/cssdog <glob> [options...]
