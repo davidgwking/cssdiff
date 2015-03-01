@@ -1,5 +1,5 @@
 {
-  "name": "cssdiff",
+  "name": "cssdog",
   "version": "0.0.1",
   "description": "a small tool for performing css regression analysis on static html",
   "license": "MIT",
@@ -10,12 +10,12 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "http://github.com/davidgwking/cssdiff.git"
+    "url": "http://github.com/davidgwking/cssdog.git"
   },
   "bin": {
-    "cssdiff": "./bin/cssdiff"
+    "cssdog": "./bin/cssdog"
   },
-  "main": "./lib/cssdiff",
+  "main": "./lib/cssdog",
   "dependencies": {
     "casperjs": "^1.1.0-beta3",
     "glob": "^4.4.1",

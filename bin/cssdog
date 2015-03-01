@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var cssdiff = require('../lib/cssdiff');
+var cssdog = require('../lib/cssdog');
 
 var argv = require('yargs')
   .version(function () { return require('../package').version; })
@@ -74,7 +74,7 @@ var options = {
   outputDir: argv.o
 };
 
-cssdiff(glob, options, function (err, ok, code) {
+cssdog(glob, options, function (err, ok, code) {
   console.info('info: child process exited with code %s', code);
 
   if (err) {

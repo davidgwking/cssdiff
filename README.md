@@ -1,4 +1,4 @@
-# cssdiff
+# cssdog
 
 A small cli tool for performing root-level css regression testing on static html. This tool is also programmable from within *node*.
 
@@ -7,8 +7,8 @@ The implementation leverages [PhantomCSS](https://github.com/Huddle/PhantomCSS),
 Any generated artifacts will be stored in your current working directory.
 
 ```bash
-$ /cssdiff/bin/cssdiff "html/{,**/*}*.html" -h
-node cssdiff/bin/cssdiff <glob> [options...]
+$ /cssdog/bin/cssdog "html/{,**/*}*.html" -h
+node cssdog/bin/cssdog <glob> [options...]
 
 Options:
   --version        Show version number
