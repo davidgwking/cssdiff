@@ -9,7 +9,7 @@ The tool's output directory is relative to your current working directory. Usage
 File selection is powered by [glob](https://github.com/isaacs/node-glob).
 
 ```bash
-$ cssdog "html/{,**/*}*.html" -h
+$ cssdog "html/{,**/}*.html" -h
 node cssdog/bin/cssdog <glob> [options...]
 
 Options:
