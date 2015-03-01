@@ -4,7 +4,7 @@ A small cli tool for performing root-level css regression testing on static html
 
 The implementation leverages [PhantomCSS](https://github.com/Huddle/PhantomCSS), launching [Casper](https://github.com/n1k0/casperjs) and [PhantomJS](https://github.com/ariya/phantomjs) as a child process.
 
-The tool's output directory is relative to your current working directory. Using absolute paths is discouraged as they tend to generate results sets with unnecessarily deep file trees.
+The tool's output directory is relative to your current working directory. Usage of absolute paths is discouraged as they tend to generate unruly file trees.
 
 File selection is powered by [glob](https://github.com/isaacs/node-glob).
 
