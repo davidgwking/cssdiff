@@ -14,7 +14,7 @@ node cssdog <glob> [options...]
 
 Options:
   --version        Show version number
-  -e, --engine     rendering engine of choice [phantomjs|slimerjs]
+  -e, --engine     rendering engine of choice [phantomjs]
                                                           [default: "phantomjs"]
   -v, --verbose    whether to print log messages to stdout      [default: false]
   -l, --log-level  desired logging level [debug|info|warning|error]
