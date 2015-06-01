@@ -17,12 +17,11 @@
   },
   "main": "./lib/cssdog",
   "dependencies": {
+    "async": "^1.0.0",
     "casperjs": "^1.1.0-beta3",
     "glob": "^4.4.1",
     "path-browserify": "0.0.0",
-    "phantomcss": "^0.10.0",
-    "phantomjs": "^1.9.15",
-    "slimerjs": "^0.9.5",
+    "resemblejs": "^1.2.1",
     "yargs": "^3.4.4"
   },
   "engines": {
