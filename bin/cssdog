@@ -35,8 +35,8 @@ var argv = require('yargs')
   .option('t', {
     alias: 'tolerance',
     demand: false,
-    default: 0.05,
-    describe: 'Mismatch tolerance. Increasing this value will decrease test coverage. Defaults to 0.05%.',
+    default: 0.01,
+    describe: 'Mismatch tolerance. Increasing this value will decrease test coverage. Defaults to 0.01%.',
     type: 'number'
   })
   .option('v', {

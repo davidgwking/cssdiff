@@ -22,8 +22,8 @@ Options:
   -r, --rebase              create a new baseline. this will delete your current
                             baseline snapshots.       [boolean] [default: false]
   -t, --tolerance           Mismatch tolerance. Increasing this value will
-                            decrease test coverage. Defaults to 0.05%.
-                                                                 [default: 0.05]
+                            decrease test coverage. Defaults to 0.01%.
+                                                                 [default: 0.01]
   -v, --verbose             verbose logging to stdout and stderr
                                                       [boolean] [default: false]
   -h                        Show help                                  [boolean]
