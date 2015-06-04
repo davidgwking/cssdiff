@@ -1,6 +1,6 @@
 {
   "name": "cssdog",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a small tool for performing css regression analysis on static html",
   "license": "MIT",
   "author": "David King <davidgwking@gmail.com>",
