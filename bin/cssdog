@@ -4,34 +4,19 @@ var cssdog = require('../lib/cssdog');
 
 var argv = require('yargs')
   .version(function () { return require('../package').version; })
-  .usage('$0 <glob> [options...]')
-  .option('e', {
-    alias: 'engine',
+  .usage('$0 <input glob> [options...]')
+  .option('a', {
+    alias: 'artifactsDirectory',
     demand: false,
-    default: 'phantomjs',
-    describe: 'rendering engine of choice [phantomjs|slimerjs]',
+    default: './artifacts',
+    describe: 'location where intermediary results and failures are stored.',
     type: 'string'
   })
-  .option('v', {
-    alias: 'verbose',
+  .option('b', {
+    alias: 'baselinesDirectory',
     demand: false,
-    default: false,
-    describe: 'whether to print log messages to stdout',
-    type: 'boolean'
-  })
-  .option('l', {
-    alias: 'log-level',
-    demand: false,
-    default: 'info',
-    describe: 'desired logging level [debug|info|warning|error]',
+    describe: 'location where from where baselines are loaded and stored. Defaults to ./{{artifactsDirectory}}/baselines',
     type: 'string'
-  })
-  .option('r', {
-    alias: 'rebase',
-    demand: false,
-    default: false,
-    describe: 'create a new baseline. this will delete your current baseline snapshots.',
-    type: 'boolean'
   })
   .option('d', {
     alias: 'dirty',
@@ -40,41 +25,47 @@ var argv = require('yargs')
     describe: 'do not clean up comparison artifacts and results following a run.',
     type: 'boolean'
   })
+  .option('r', {
+    alias: 'rebase',
+    demand: false,
+    default: false,
+    describe: 'create a new baseline. this will delete your current baseline snapshots.',
+    type: 'boolean'
+  })
   .option('t', {
     alias: 'tolerance',
     demand: false,
-    default: 0.05,
-    describe: 'Mismatch tolerance. Increasing this value will decrease test coverage. Defaults to 0.05%.',
+    default: 0.01,
+    describe: 'Mismatch tolerance. Increasing this value will decrease test coverage. Defaults to 0.01%.',
     type: 'number'
   })
-  .option('o', {
-    alias: 'outputDir',
+  .option('v', {
+    alias: 'verbose',
     demand: false,
-    default: './out',
-    describe: 'specify the output artifacts and results directory.',
-    type: 'string'
+    default: false,
+    describe: 'whether to print log messages to stdout',
+    type: 'boolean'
   })
   .help('h')
   .strict()
   .argv;
 
-var glob = argv._[0];
-if (!glob) {
-  console.error('error: glob pattern required');
+var inputGlob = argv._[0];
+if (!inputGlob) {
+  console.error('error: input glob pattern required');
   process.exit(1);
 }
 
 var options = {
-  engine: argv.e,
-  verbose: argv.v,
-  logLevel: argv.l,
-  rebase: argv.r,
+  artifactsDirectory: argv.a,
+  baselinesDirectory: argv.b,
   dirty: argv.d,
+  rebase: argv.r,
   mismatchTolerance: argv.t,
-  outputDir: argv.o
+  verbose: argv.v
 };
 
-cssdog(glob, options, function (err, ok, code) {
+cssdog(inputGlob, options, function (err, ok, code) {
   console.info('info: child process exited with code %s', code);
 
   if (err) {

@@ -2,31 +2,29 @@
 
 A small cli tool for performing root-level css regression testing on static html. This tool is also programmable from within *node*.
 
-The implementation leverages [PhantomCSS](https://github.com/Huddle/PhantomCSS), launching [Casper](https://github.com/n1k0/casperjs) and [PhantomJS](https://github.com/ariya/phantomjs) as a child process.
+The implementation leverages [Resemble.js](https://github.com/Huddle/Resemble.js), launching [Casper](https://github.com/n1k0/casperjs) and [PhantomJS](https://github.com/ariya/phantomjs) as a child process.
 
-The tool's output directory is relative to your current working directory. Usage of absolute paths tend generate unruly file trees. As such, usage of absolute paths is discouraged.
-
-File selection is powered by [glob](https://github.com/isaacs/node-glob).
+File (input) selection is powered by [glob](https://github.com/isaacs/node-glob).
 
 ```bash
 $ cssdog "html/{,**/}*.html" -h
-node cssdog <glob> [options...]
+node cssdog <input glob> [options...]
 
 Options:
-  --version        Show version number
-  -e, --engine     rendering engine of choice [phantomjs]
-                                                          [default: "phantomjs"]
-  -v, --verbose    whether to print log messages to stdout      [default: false]
-  -l, --log-level  desired logging level [debug|info|warning|error]
-                                                               [default: "info"]
-  -r, --rebase     create a new baseline. this will delete your current
-                   baseline snapshots.                          [default: false]
-  -d, --dirty      do not clean up comparison artifacts and results following a
-                   run.                                         [default: false]
-  -t, --tolerance  Mismatch tolerance. Increasing this value will decrease test
-                   coverage. Defaults to 0.05%.                  [default: 0.05]
-  -o, --outputDir  specify the output artifacts and results directory.
-                                                              [default: "./out"]
-  -h               Show help
-
+  --version                 Show version number                        [boolean]
+  -a, --artifactsDirectory  location where intermediary results and failures are
+                            stored.            [string] [default: "./artifacts"]
+  -b, --baselinesDirectory  location where from where baselines are loaded and
+                            stored. Defaults to ./{{artifactsDirectory}}/
+                            baselines                                   [string]
+  -d, --dirty               do not clean up comparison artifacts and results
+                            following a run.          [boolean] [default: false]
+  -r, --rebase              create a new baseline. this will delete your current
+                            baseline snapshots.       [boolean] [default: false]
+  -t, --tolerance           Mismatch tolerance. Increasing this value will
+                            decrease test coverage. Defaults to 0.01%.
+                                                                 [default: 0.01]
+  -v, --verbose             verbose logging to stdout and stderr
+                                                      [boolean] [default: false]
+  -h                        Show help                                  [boolean]
 ```
