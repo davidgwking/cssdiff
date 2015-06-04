@@ -24,7 +24,9 @@ Options:
   -t, --tolerance           Mismatch tolerance. Increasing this value will
                             decrease test coverage. Defaults to 0.01%.
                                                                  [default: 0.01]
-  -v, --verbose             verbose logging to stdout and stderr
+  -v, --verbose             whether to print log messages to stdout
+                                                      [boolean] [default: false]
+  --no-colors               disabled colorized output
                                                       [boolean] [default: false]
   -h                        Show help                                  [boolean]
 ```

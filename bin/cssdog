@@ -46,6 +46,12 @@ var argv = require('yargs')
     describe: 'whether to print log messages to stdout',
     type: 'boolean'
   })
+  .option('no-colors', {
+    demand: false,
+    default: false,
+    describe: 'disabled colorized output',
+    type: 'boolean'
+  })
   .help('h')
   .strict()
   .argv;
