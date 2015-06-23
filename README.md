@@ -23,12 +23,13 @@ Options:
                             following a run.          [boolean] [default: false]
   -r, --rebase              create a new baseline. this will delete your current
                             baseline snapshots.       [boolean] [default: false]
-  -t, --tolerance           Mismatch tolerance. Increasing this value will
+  -s, --timeout             regression test timeout in seconds. Defaults to 5
+                            seconds.                                [default: 5]
+  -t, --tolerance           mismatch tolerance. Increasing this value will
                             decrease test coverage. Defaults to 0.01%.
                                                                  [default: 0.01]
   -v, --verbose             whether to print log messages to stdout
                                                       [boolean] [default: false]
-  --no-colors               disabled colorized output
-                                                      [boolean] [default: false]
+  --no-colors               disable colorized output  [boolean] [default: false]
   -h                        Show help                                  [boolean]
 ```
