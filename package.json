@@ -18,9 +18,10 @@
   "main": "./lib/cssdog",
   "dependencies": {
     "async": "^1.0.0",
-    "casperjs": "^1.1.0-beta3",
+    "casperjs": "git://github.com/n1k0/casperjs.git#254a107ab0e0c2b2999019f9367f1b4e58045a46",
     "glob": "^4.4.1",
     "path-browserify": "0.0.0",
+    "phantomjs": "^2.1.2",
     "resemblejs": "^1.2.1",
     "yargs": "^3.4.4"
   },
